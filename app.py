@@ -16,7 +16,7 @@
 
 from layout import make_layout
 import dash, os
-
+import dash_bootstrap_components as dbc
 
 # Import stylesheets
 stylesheets = [
@@ -31,7 +31,7 @@ stylesheets = [
 # Initialize app
 app = dash.Dash(
   __name__,
-  external_stylesheets=stylesheets,
+  external_stylesheets=[dbc.themes.BOOTSTRAP],
   use_pages=True
 )
 
