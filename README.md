@@ -1,7 +1,7 @@
 <div align="center">
   <img src="./assets/title.png" width="100%"/>
 
-### [rio-airbnb.up.railway.app](rio-airbnb.up.railway.app)
+### [rio-airbnb.up.railway.app](https://rio-airbnb.up.railway.app)
 </div>
 
 

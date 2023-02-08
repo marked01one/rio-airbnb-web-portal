@@ -13,14 +13,16 @@ def make_layout():
       
       # Sidebar HTML, containing route links and project title
       sidebar.Sidebar(
-        className="col-12 col-lg-2 bg-black text-white py-4",
+        className="col-12 col-lg-2 bg-black text-white py-4 sidebar",
         title='Airbnb Predictive Model',
-        credits='by Minh Khoi Tran'
+        credits='by Minh Khoi Tran',
+        style={"position": "fixed"}
       ).create(),
       
       # Main content container
       html.Div(
         className="col-12 col-lg-10 main-body",
+        style={"position": "left", "zIndex": -1, "marginLeft": "auto", "marginRight": 0},
         children=[
           dash.page_container,
           footer.Footer(

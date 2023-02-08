@@ -10,6 +10,18 @@
   }
 }
 
+@media (min-width:992px) {
+
+  /* your conditional / responsive CSS inside this condition */
+
+  .sidebar { 
+    overflow: auto;
+    height: 100%;  
+  }
+
+}
+
+
 .literature-content a, .dataset-content a {
   display: block;
   padding: 2px;
