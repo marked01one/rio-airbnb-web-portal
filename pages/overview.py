@@ -33,7 +33,7 @@ layout = html.Div(
       id='overview1',
       figure=overview(
         df_filtered=df[df['Category'] == 'Features'], 
-        height=1500, 
+        height=1500,
         title='Most popular Airbnb features',
         labels={
           'Index': 'Airbnb Features',

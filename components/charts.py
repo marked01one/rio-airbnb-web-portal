@@ -3,7 +3,6 @@ import plotly.express as px
 from constants import MODEL_CAT
 from constants import AXIS_FONT, TITLE_FONT
 from matplotlib.figure import Figure
-import dash
 
 
 def overview(df_filtered: pd.DataFrame, height: int, title: str, labels: dict = None, barmode: str = 'relative') -> Figure:

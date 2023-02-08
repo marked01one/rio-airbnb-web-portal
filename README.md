@@ -26,7 +26,12 @@ either to showcase exploratory data analysis, model results, or as interactive d
 pip install virtualenv
 virtual env
 ```
-
+* Activate the virtual environment by entering:
+```python
+source env/scripts/activate   # If you're using Git Bash
+./env/scripts/activate.ps1    # If you're using Command Prompt / PowerShell
+```
+* Download all required dependencies by typing `pip install -r requirements.txt`
 
 
 * Finally, run the `main.py` file in the root directory:
@@ -48,8 +53,3 @@ Dash is running on http://127.0.0.1:8050/
 * Flask
 * Plotly 
 * Pandas
-
-## Getting Started
-
-- Install Python requirements `pip install -r requirements.txt`
-- Start the server for development `python3 main.py`

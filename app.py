@@ -24,7 +24,6 @@ external_scripts = [
 app = dash.Dash(
   __name__,
   external_stylesheets=external_stylesheets,
-  external_scripts=external_scripts,
   use_pages=True
 )
 
@@ -33,4 +32,4 @@ server = app.server
 # Run server
 if __name__ == '__main__':
   app.layout = make_layout()
-  app.run(debug=True, port=os.getenv("PORT", default=5000))
+  app.run(debug=True, port=os.getenv("PORT", 5000))

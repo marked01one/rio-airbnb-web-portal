@@ -15,14 +15,12 @@ def make_layout():
       sidebar.Sidebar(
         className="col-12 col-lg-2 bg-black text-white py-4 sidebar",
         title='Airbnb Predictive Model',
-        credits='by Minh Khoi Tran',
-        style={"position": "fixed"}
+        credits='by Minh Khoi Tran'
       ).create(),
       
       # Main content container
       html.Div(
         className="col-12 col-lg-10 main-body",
-        style={"position": "left", "zIndex": -1, "marginLeft": "auto", "marginRight": 0},
         children=[
           dash.page_container,
           footer.Footer(

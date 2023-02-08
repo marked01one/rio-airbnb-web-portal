@@ -1,5 +1,4 @@
-import dash
-from dash import html, dcc 
+from dash import html
 
 
 class Footer:
