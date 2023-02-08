@@ -1,37 +1,23 @@
-# from flask import Flask, jsonify
-# import os
-
-# app = Flask(__name__)
-
-
-# @app.route('/')
-# def index():
-#     return jsonify({"Choo Choo": "Welcome to your Flask app 🚅"})
-
-
-# if __name__ == '__main__':
-#     app.run(debug=True, port=os.getenv("PORT", default=5000))
-
-
-
 from layout import make_layout
 import dash, os
 import dash_bootstrap_components as dbc
 
 # Import stylesheets
-stylesheets = [
+external_stylesheets = [
   {
-    'href': 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css',
-    'rel': 'stylesheet',
-    'integrity': "sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD",
-    'crossorigin': 'anonymous'
+    "rel": "stylesheet",
+    "href": "https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css",
+    "integrity": "sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi",
+    "crossorigin": "anonymous"
   }
 ]
+
+# <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
 # Initialize app
 app = dash.Dash(
   __name__,
-  external_stylesheets=[dbc.themes.BOOTSTRAP],
+  external_stylesheets=external_stylesheets,
   use_pages=True
 )
 
