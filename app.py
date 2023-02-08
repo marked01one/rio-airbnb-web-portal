@@ -35,6 +35,7 @@ app = dash.Dash(
   use_pages=True
 )
 
+server = app.server
 
 # Run server
 if __name__ == '__main__':
