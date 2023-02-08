@@ -1,23 +1,55 @@
----
-title: Flask
-description: A popular minimal server framework for Python
-tags:
-  - python
-  - flask
----
+<div align="center">
+  <img src="./assets/title.png" width="100%"/>
 
-# Python Flask Example
+### [rio-airbnb.up.railway.app](rio-airbnb.up.railway.app)
+</div>
 
-This is a [Flask](https://flask.palletsprojects.com/en/1.1.x/) app that serves a simple JSON response.
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/zUcpux)
 
-## ✨ Features
+This a web portal created to serve this RIO Airbnb Predictive Model research project at Cal Poly Pomona. For more information on the project, chec, 
 
-- Python
-- Flask
+either to showcase exploratory data analysis, model results, or as interactive demos of the model itself.
 
-## 💁‍♀️ How to use
+
+## Sections Summary
+### Literature Analysis
+* This section is designed to showcase results of our analysis of related literature, including various papers about Airbnb price predicting models and sentiment analysis techniques.
+* Include four sections: **Overview**, **Features**, **Models**, and **Other**
+
+### Dataset (in progress)
+* This section is designed to showcase the results of our exploratory data analysis of the dataset of Airbnb listings.
+
+
+## Run the Web Portal
+* It is advised to run the development server in a virtual environment. To set up an virtual environment, download `virtualenv` and create a virtual environment:
+```bash
+pip install virtualenv
+virtual env
+```
+
+
+
+* Finally, run the `main.py` file in the root directory:
+```bash
+python main.py
+```
+* After the commands run, this prompt should appear:
+```
+Dash is running on http://127.0.0.1:8050/
+
+ * Serving Flask app 'app'
+ * Debug mode: on
+```
+* Navigate to the given URL address on your browser to access the web portal
+
+
+## Technnologies 
+* Python
+* Flask
+* Plotly 
+* Pandas
+
+## Getting Started
 
 - Install Python requirements `pip install -r requirements.txt`
 - Start the server for development `python3 main.py`
