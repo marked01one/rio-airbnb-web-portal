@@ -16,11 +16,13 @@
   padding-left: 12px;
   color: #FFF;
   text-decoration: none;
+  border-radius: 4px;
 }
 
-.active-page {
-  background: red;
-  color: aqua;
+.active {
+  font-weight: bold;
+  font-style: italic;
+  border-radius: 4px;
 }
 
 .literature-content a:hover, .dataset-content a:hover {
@@ -28,7 +30,10 @@
   background-color: gray;
 }
 
-
+.acknowledgements {
+  margin-top: 15%;
+  margin-bottom: 15%;
+}
 
 .welcome-page {
   margin-top: 28%;

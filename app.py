@@ -76,6 +76,12 @@ app.layout = \
                       html.Div(
                         className='col-6 col-lg-12',
                         children=[
+                          html.Div(
+                            className="literature-content",
+                            children=[
+                              html.A("Acknowledgements", href="/acknowledgments", id={"type":"link-navbar", "index": "/acknowledgments"})
+                            ]
+                          ),
                           html.P('Literature Analysis', className='bg-light text-black display-block overflow-auto mt-2 px-2'),
                           html.Div(
                             className='literature-content',
@@ -137,7 +143,7 @@ app.layout = \
 @app.callback(Output({"type":"link-navbar", "index":ALL}, "className"), 
 [Input("url", "pathname"),Input({"type":"link-navbar", "index":ALL}, "id")])
 def callback_func(pathname, link_elements):
-    return ["border border-white font-bold" if val["index"] == pathname else "not-active" for val in link_elements]
+    return ["border border-white active" if val["index"] == pathname else "not-active" for val in link_elements]
 
 
 # Run server
