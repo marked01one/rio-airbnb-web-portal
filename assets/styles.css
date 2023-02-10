@@ -10,7 +10,6 @@
   }
 }
 
-
 .literature-content a, .dataset-content a {
   display: block;
   padding: 2px;
@@ -18,10 +17,18 @@
   color: #FFF;
   text-decoration: none;
 }
+
+.active-page {
+  background: red;
+  color: aqua;
+}
+
 .literature-content a:hover, .dataset-content a:hover {
   color: #000000;
   background-color: gray;
 }
+
+
 
 .welcome-page {
   margin-top: 28%;
