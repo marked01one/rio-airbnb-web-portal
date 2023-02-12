@@ -10,6 +10,27 @@
   }
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #fff; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 4px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #888; 
+}
+
 .literature-content a, .dataset-content a {
   display: block;
   padding: 2px;
@@ -25,7 +46,7 @@
   border-radius: 4px;
 }
 
-.literature-content a:hover, .dataset-content a:hover {
+.literature-content a:hover, .dataset-content a:hover, .github-link:hover {
   color: #000000;
   background-color: gray;
 }

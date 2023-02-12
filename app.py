@@ -61,10 +61,15 @@ app.layout = \
           html.Div(
             children=[
               html.Div(
-                className='text-center',
+                className='text-center pb-4',
                 children=[
                 html.H4('Airbnb Predictive Model'),
-                html.P('by Minh Khoi Tran', style={'fontStyle': 'italic'}, className="pb-4")
+                html.A(
+                  children="Web Portal GitHub Link", 
+                  href="https://github.com/marked01one/rio-airbnb-web-portal", 
+                  style={'fontStyle': 'italic', 'fontWeight': 600}, 
+                  className="text-decoration-none text-black btn btn-light btn-border-dark github-link"
+                )
               ]),
               html.Div(
                 className='px-3',
