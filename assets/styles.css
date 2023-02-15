@@ -40,6 +40,18 @@
   border-radius: 4px;
 }
 
+.section-head a {
+  display: block;
+  padding: 2px;
+  padding-left: 12px;
+  color: black;
+  background-color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
 .active {
   font-weight: bold;
   font-style: italic;
@@ -48,7 +60,12 @@
 
 .literature-content a:hover, .dataset-content a:hover, .github-link:hover {
   color: #000000;
-  background-color: gray;
+  background-color: #999;
+}
+
+.section-head a:hover {
+  color: #fff;
+  background-color: #555;
 }
 
 .acknowledgements {
@@ -57,8 +74,8 @@
 }
 
 .welcome-page {
-  margin-top: 28%;
-  margin-bottom: 28%;
+  margin-top: 24%;
+  margin-bottom: 24%;
 }
 
 .main-body {

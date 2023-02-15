@@ -1,5 +1,5 @@
 from importlib.resources import path
-from dash import html, dcc, Input, Output, ALL
+from dash import html, dcc, Input, Output, ALL, ctx
 import dash, os
 from components import footer
 
@@ -32,62 +32,54 @@ app = dash.Dash(
 server = app.server
 app.suppress_callback_exceptions = True
 
-
 def filter_page(section: str) -> list:
     return_list = []
     
     for page in dash.page_registry.values():
-      if page['path'].split('/')[1] == section:
-        return_list.append(page)
+      try:
+        if (page['path'].split('/')[1] == section and page['path'].split('/')[2] != ""):
+          return_list.append(page)
+      except(IndexError):
+        pass
     
     if len(return_list) == 0:
       raise Exception("There are no pages under this relative path")
     
-    
-    
+
     return [page for page in sorted(return_list, key=lambda x: x['relative_path'])]
+
 
 
 app.layout = \
   html.Div(
-    className="row",
     style={'fontFamily': 'monospace'},
     children=[
       dcc.Location(id="url"),
       # Sidebar HTML, containing route links and project title
       html.Div(
-        className="col-12 col-lg-2 bg-black text-white py-4 sidebar",
+        id="sidebar-id",
+        className="bg-black text-white py-4 sidebar",
         children=[
+          html.A(id="close-sidebar", className="close-btn btn", children="×"),
           html.Div(
             children=[
               html.Div(
-                className='text-center pb-4',
-                children=[
-                html.H4('Airbnb Predictive Model'),
-                html.A(
-                  children="Web Portal GitHub Link", 
-                  href="https://github.com/marked01one/rio-airbnb-web-portal", 
-                  style={'fontStyle': 'italic', 'fontWeight': 600}, 
-                  className="text-decoration-none text-black btn btn-light btn-border-dark github-link"
-                )
-              ]),
-              html.Div(
-                className='px-3',
+                className="mt-5",
                 children=[
                   html.H4('Contents'),
                   html.Div(
                     className='row',
                     children=[
                       html.Div(
-                        className='col-6 col-lg-12',
                         children=[
                           html.Div(
                             className="literature-content",
-                            children=[
-                              html.A("Acknowledgements", href="/acknowledgments", id={"type":"link-navbar", "index": "/acknowledgments"})
-                            ]
+                            children=[html.A("Acknowledgements", href="/acknowledgments", id={"type":"link-navbar", "index": "/acknowledgments"})]
                           ),
-                          html.P('Literature Analysis', className='bg-light text-black display-block overflow-auto mt-2 px-2'),
+                          html.Div(
+                            className="section-head",
+                            children=[html.A('Literature Analysis', href="/literature", id={"type":"link-navbar", "index": "/literature"})]
+                          ),
                           html.Div(
                             className='literature-content',
                             children=[
@@ -102,7 +94,6 @@ app.layout = \
                         ]  
                       ),
                       html.Div(
-                        className='col-6 col-lg-12',
                         children=[
                           html.P('Dataset (in progress)', className='bg-light text-black display-block overflow-auto mt-2 px-2'),
                           html.Div(
@@ -115,6 +106,10 @@ app.layout = \
                             ]
                           )
                         ]
+                      ),
+                      html.Div(
+                        className="section-head pt-4", style={"fontWeight": 600},
+                        children=[html.A('Visit our GitHub!', href="https://github.com/marked01one/rio-airbnb-web-portal")]
                       )
                     ]
                   )
@@ -128,15 +123,23 @@ app.layout = \
         
       # Main content container
       html.Div(
-        className="col-12 col-lg-10 main-body",
+        id="body-id",
+        className="main-body",
         children=[
+          html.Div(
+            className="d-flex justify-content-between",
+            children=[
+              html.Button(className="open-btn", id="open-sidebar", children="☰ Contents"),
+              html.P("Airbnb Predictive Model - Data Visualizations", className="my-4 mx-4")
+            ]
+          ),
           dash.page_container,
           footer.Footer(
             statement="""
               This web portal is created to support the predictive modeling project initiated by Dr. Sonya Zhang from the 
               Computer Information Systems department of California Polytechnic State University, Pomona
             """,
-            hyperlink_text='For more info on the project, click on this link',
+            hyperlink_text='For more info on the project, check our GitHub repository',
             github_link='https://github.com/marked01one/rio-airbnb-predictive-model#-web-portals-',
             className="container mb-4"
           ).create()
@@ -145,12 +148,32 @@ app.layout = \
     ]
   )
 
+
+
 @app.callback(Output({"type":"link-navbar", "index":ALL}, "className"), 
 [Input("url", "pathname"),Input({"type":"link-navbar", "index":ALL}, "id")])
-def callback_func(pathname, link_elements):
-    return ["border border-white active" if val["index"] == pathname else "not-active" for val in link_elements]
+def highlight_current_page(pathname, link_elements):
+    return ["border border-white bg-black text-white active" if val["index"] == pathname else "not-active" for val in link_elements]
 
 
+@app.callback(Output("sidebar-id", "style"), [Input("close-sidebar", "n_clicks"), Input("open-sidebar", "n_clicks")])
+def change_sidebar(close_sidebar, open_sidebar):
+  if ctx.triggered_id == "close-sidebar":
+    return {"width": "0px", "paddingLeft" : "0px", "paddingRight": "0px"}
+  
+  if ctx.triggered_id == "open-sidebar":
+    return {"width": "250px", "paddingLeft" : "15px", "paddingRight": "15px"}
+
+
+@app.callback(Output("body-id", "style"), [Input("close-sidebar", "n_clicks"), Input("open-sidebar", "n_clicks")])
+def change_sidebar(close_sidebar, open_sidebar):
+  if ctx.triggered_id == "close-sidebar":
+    return {"marginLeft": "0px"}
+  
+  if ctx.triggered_id == "open-sidebar":
+    return {"marginLeft": '250px'}
+
+  
 # Run server
 if __name__ == '__main__':
-  app.run(debug=True, port=os.getenv("PORT", 5000))
+  app.run(debug=False, port=os.getenv("PORT", 5000))
