@@ -151,12 +151,13 @@ app.layout = \
 
 
 @app.callback(Output({"type":"link-navbar", "index":ALL}, "className"), 
-[Input("url", "pathname"),Input({"type":"link-navbar", "index":ALL}, "id")])
+              [Input("url", "pathname"),Input({"type":"link-navbar", "index":ALL}, "id")])
 def highlight_current_page(pathname, link_elements):
     return ["border border-white bg-black text-white active" if val["index"] == pathname else "not-active" for val in link_elements]
 
 
-@app.callback(Output("sidebar-id", "style"), [Input("close-sidebar", "n_clicks"), Input("open-sidebar", "n_clicks")])
+@app.callback(Output("sidebar-id", "style"), 
+              [Input("close-sidebar", "n_clicks"), Input("open-sidebar", "n_clicks")])
 def change_sidebar(close_sidebar, open_sidebar):
   if ctx.triggered_id == "close-sidebar":
     return {"width": "0px", "paddingLeft" : "0px", "paddingRight": "0px"}
@@ -165,7 +166,8 @@ def change_sidebar(close_sidebar, open_sidebar):
     return {"width": "250px", "paddingLeft" : "15px", "paddingRight": "15px"}
 
 
-@app.callback(Output("body-id", "style"), [Input("close-sidebar", "n_clicks"), Input("open-sidebar", "n_clicks")])
+@app.callback(Output("body-id", "style"), 
+              [Input("close-sidebar", "n_clicks"), Input("open-sidebar", "n_clicks")])
 def change_sidebar(close_sidebar, open_sidebar):
   if ctx.triggered_id == "close-sidebar":
     return {"marginLeft": "0px"}
