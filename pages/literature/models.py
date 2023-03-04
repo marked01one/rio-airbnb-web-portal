@@ -33,12 +33,7 @@ def overview_types(view_types: str):
       'Total': 'Number of articles',
       'Subcategory': 'Category'
     },
-    barmode=view_types,
-    color_discrete_map={
-      'Regression': '#9DC08B',
-      'Classification': '#AD7BE9',
-      'Clustering': '#F16767'
-    }
+    barmode=view_types
   )  
 
 
@@ -61,12 +56,7 @@ def overview_types(view_types: str):
       'Total': 'Impact score',
       'Subcategory': 'Category'
     },
-    barmode=view_types,
-    color_discrete_map={
-      'Regression': '#9DC08B',
-      'Classification': '#AD7BE9',
-      'Clustering': '#F16767'
-    }
+    barmode=view_types
   )
 
 
