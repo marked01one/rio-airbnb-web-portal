@@ -180,4 +180,4 @@ def change_sidebar(close_sidebar, open_sidebar):
 
 # Run server
 if __name__ == '__main__':
-  app.run(debug=False, port=os.getenv("PORT", 5000))
+  app.run(debug=True, port=os.getenv("PORT", 5000))

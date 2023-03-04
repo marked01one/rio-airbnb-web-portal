@@ -30,7 +30,7 @@ def text_mining_types(view_types: str):
     height=600,
     title=f'Most popular text mining libraries/algorithms ({view_types.lower()})',
     labels={
-      'Index': 'Models',
+      'Index': 'Libraries/Algorithms',
       'Total': 'Number of articles' if view_types == 'Frequency' else 'Impact score',
       'Subcategory': 'Category'
     }
@@ -43,7 +43,7 @@ def feature_selection():
     height=600,
     title=f'Most popular feature selection techniques/algorithms',
     labels={
-      'Index': 'Models',
+      'Index': 'Libraries/Algorithms',
       'Total': 'Number of articles',
       'Subcategory': ''
     }
