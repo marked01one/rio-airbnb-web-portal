@@ -2,7 +2,7 @@ import dash
 from dash import html, dcc
 
 
-dash.register_page(__name__, path='/')
+dash.register_page(__name__, path='/', title="Airbnb Predictive Model | Data Visualizations")
 
 layout = html.Div(
   className='container welcome-page text-center',

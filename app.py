@@ -93,20 +93,21 @@ app.layout = \
                           )
                         ]  
                       ),
-                      html.Div(
-                        children=[
-                          html.P('Dataset (in progress)', className='bg-light text-black display-block overflow-auto mt-2 px-2'),
-                          html.Div(
-                            className='dataset-content',
-                            children=[
-                              html.A(children='Price', href='/literature'),
-                              html.A(children='Listings', href='/literature/features'),
-                              html.A(children='Hosts', href='/literature/models'),
-                              html.A(children='Amenities', href='/literature/other')
-                            ]
-                          )
-                        ]
-                      ),
+                      # NOTE: Commented out because we don't need it just yet
+                      # html.Div(
+                      #   children=[
+                      #     html.P('Dataset (in progress)', className='bg-light text-black display-block overflow-auto mt-2 px-2'),
+                      #     html.Div(
+                      #       className='dataset-content',
+                      #       children=[
+                      #         html.A(children='Price', href='/literature'),
+                      #         html.A(children='Listings', href='/literature/features'),
+                      #         html.A(children='Hosts', href='/literature/models'),
+                      #         html.A(children='Amenities', href='/literature/other')
+                      #       ]
+                      #     )
+                      #   ]
+                      # ),
                       html.Div(
                         className="section-head pt-4", style={"fontWeight": 600},
                         children=[html.A('Visit our GitHub!', href="https://github.com/marked01one/rio-airbnb-web-portal")]
@@ -175,7 +176,8 @@ def change_sidebar(close_sidebar, open_sidebar):
   if ctx.triggered_id == "open-sidebar":
     return {"marginLeft": '250px'}
 
-  
+
+
 # Run server
 if __name__ == '__main__':
-  app.run(debug=False, port=os.getenv("PORT", 5000))
+  app.run(debug=True, port=os.getenv("PORT", 5000))

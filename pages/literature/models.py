@@ -33,7 +33,12 @@ def overview_types(view_types: str):
       'Total': 'Number of articles',
       'Subcategory': 'Category'
     },
-    barmode=view_types
+    barmode=view_types,
+    color_discrete_map={
+      'Regression': '#9DC08B',
+      'Classification': '#AD7BE9',
+      'Clustering': '#F16767'
+    }
   )  
 
 
@@ -56,7 +61,12 @@ def overview_types(view_types: str):
       'Total': 'Impact score',
       'Subcategory': 'Category'
     },
-    barmode=view_types
+    barmode=view_types,
+    color_discrete_map={
+      'Regression': '#9DC08B',
+      'Classification': '#AD7BE9',
+      'Clustering': '#F16767'
+    }
   )
 
 
@@ -73,8 +83,8 @@ def category_types_pie(model_types: str):
   - `category_freq: figure`: A figure of models within each type and their relative influence 
   '''
   df_model_type = df_freq[df_freq['Subcategory'] == model_types]
-  fig_model_type = px.pie(df_model_type, values='Total', names='Index',
-                          title='Frequency')
+  fig_model_type = px.pie(df_model_type, values='Total', names='Index', title='Frequency')
+  
   fig_model_type.update_layout(title_font=TITLE_FONT)
   return fig_model_type
 
@@ -90,8 +100,7 @@ def category_types_pie(model_types: str):
   - `category_freq: figure`: A figure of models within each type and their relative influence 
   '''
   df_model_type = df_impact[df_impact['Subcategory'] == model_types]
-  fig_model_type = px.pie(df_model_type, values='Total', names='Index',
-                          title='Impact')
+  fig_model_type = px.pie(df_model_type, values='Total', names='Index', title='Impact')
   fig_model_type.update_layout(title_font=TITLE_FONT)
   return fig_model_type
 

@@ -8,11 +8,13 @@ from matplotlib.figure import Figure
 def overview(df_filtered: pd.DataFrame, height: int, title: str, labels: dict = None, barmode: str = 'relative') -> Figure:
   df = df_filtered.sort_values(by=['Total'])
 
-  fig = px.bar(df, x="Total", y="Index", color='Subcategory', orientation='h', barmode=barmode,
-                        labels=labels, height=height, title=title)
+  fig = px.bar(df, 
+    x="Total", y="Index", color='Subcategory', orientation='h', barmode=barmode,
+    labels=labels, height=height, title=title
+  )
   fig.update_layout(title_font=TITLE_FONT)
-  fig.update_yaxes(categoryorder='total ascending', titlefont=AXIS_FONT)
-  fig.update_xaxes(titlefont=AXIS_FONT)
+  fig.update_yaxes(categoryorder='total ascending', title_font=AXIS_FONT)
+  fig.update_xaxes(title_font=AXIS_FONT)
   
   return fig
 
