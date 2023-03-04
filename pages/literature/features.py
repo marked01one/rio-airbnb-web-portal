@@ -21,7 +21,7 @@ def feature_view_types(view_types: str):
   df: pd.DataFrame = df_freq if (view_types == "Frequency") else df_impact
   return overview(
     df_filtered=df[df['Category'] == 'Features'],
-    height=1500,
+    height=1600,
     title=f'Most popular Airbnb ({view_types.lower()})',
     labels={
       'Index': 'Airbnb Features',
